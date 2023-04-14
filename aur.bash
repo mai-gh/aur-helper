@@ -10,8 +10,7 @@ function aur() {
 
   case $1 in
     clone)
-      git -C ~/work/aur clone -b packages/$2 --single-branch https://github.com/
-archlinux/svntogit-packages $2 ||
+      git -C ~/work/aur clone -b packages/$2 --single-branch https://github.com/ archlinux/svntogit-packages $2 ||
       git -C ~/work/aur clone https://aur.archlinux.org/$2.git
       sh -c "cd ~/work/aur/$2;
              [ -d trunk ] && cd trunk;
