@@ -4,8 +4,6 @@ function aur() {
     echo 'clone $PKG_NAME'
     echo 'search $STR'
     echo 'sync'
-
-    exit 1
   }
 
   case $1 in
