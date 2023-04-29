@@ -18,7 +18,7 @@ function aur() {
                rm -rf $2;
                exit 1
              fi;
-             PROMPT_COMMAND='PS1=\"\[\e[37;45m\]AUR\[\e[0m\]$PS1\";unset PROMPT_COMMAND'  bash -l
+             PROMPT_COMMAND='PS1=\"[\[\e[38;5;105m\]AUR\[\e[0m\]]$PS1\";unset PROMPT_COMMAND'  bash -l
             "
       ;;
     search)
@@ -26,7 +26,7 @@ function aur() {
       zgrep $2 ~/work/aur/packages.gz | sed 's|^|aur/|g'
       ;;
     sync)
-      curl https://aur.archlinux.org/packages.gz --output ~/work/aur/packages.gz
+      wget --continue --directory-prefix=$HOME/work/aur/ --content-disposition --trust-server-names https://aur.archlinux.org/{packages,pkgbase,users,packages-meta-v1.json,packages-meta-ext-v1.json}.gz
       ;;
     *)
       cmd_help
