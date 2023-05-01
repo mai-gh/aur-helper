@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -i
 
 function aur() {
 
@@ -39,16 +39,16 @@ function aur() {
     clone)
       git -C $AURPATH clone -b packages/$2 --single-branch https://github.com/archlinux/svntogit-packages $2 ||
       git -C $AURPATH clone https://aur.archlinux.org/$2.git
-      sh -c "cd $AURPATH/$2;
-             [ -d trunk ] && cd trunk;
-             if [ ! -f PKGBUILD ]; then
-               echo 'NO PKGBUILD FOUND!';
-               cd $AURPATH;
-               rm -rf $2;
-               exit 1
-             fi;
-             PROMPT_COMMAND='PS1=\"[\[\e[38;5;105m\]AUR\[\e[0m\]]$PS1\";unset PROMPT_COMMAND'  bash -l
-            "
+      ( cd $AURPATH/$2;
+        [ -d trunk ] && cd trunk;
+        if [ ! -f PKGBUILD ]; then
+          echo 'NO PKGBUILD FOUND!';
+          cd $AURPATH;
+          rm -rf $2;
+          exit 1
+        fi;
+        PROMPT_COMMAND="PS1='[\[\e[38;5;105m\]AUR\[\e[0m\]]$PS1';unset PROMPT_COMMAND"  bash -l
+      )
       ;;
     search)
       (pacman --color=always -Ss $2; search_aur $2) | less -FR

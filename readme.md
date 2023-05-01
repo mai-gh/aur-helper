@@ -14,9 +14,9 @@ it also supports retrieving PKGBUILDS that are in the main arch repos
  2. aur.bash can be sourced, aliased, or ran directly, any of the following will work
    - `$ bash ~/work/aur/aur-helper/aur.bash`
    - `$ echo "source ~/work/aur/aur-helper/aur.bash" >> ~/.bashrc`
-   - `$ echo "alias aur='bash ~/work/aur/aur-helper/aur.bash' >> ~/.bashrc`  
- 4. run `aur sync` to download a list of all the aur packages
- 5. run `aur search $SEARCH_TERM` to find a package 
- 6. run `aur clone $PKG_NAME` to clone a repo, and spawn a subshell
- 7. review / edit the PKGBUILD, then build+install with `makepkg -si`
- 8. press `Ctrl + d` to exit the subshell and return to where you started from
+   - `$ echo "alias aur='~/work/aur/aur-helper/aur.bash' >> ~/.bashrc`  
+ 3. run `aur sync` to download a list of all the aur packages
+ 4. run `aur search $SEARCH_TERM` to find a package 
+ 5. run `aur clone $PKG_NAME` to clone a repo, and spawn a subshell
+ 6. review / edit the PKGBUILD, then build+install with `makepkg -si`
+ 7. press `Ctrl + d` to exit the subshell and return to where you started from
