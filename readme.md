@@ -11,10 +11,10 @@ it also supports retrieving PKGBUILDS that are in the main arch repos
 
  
  1. `$ mkdir -p ~/work/aur && cd ~/work/aur && git clone https://github.com/mai-gh/aur-helper.git`
- 2. aur.bash can be sourced, aliased, or ran directly, any of the following will work
-   - `$ bash ~/work/aur/aur-helper/aur.bash`
-   - `$ echo "source ~/work/aur/aur-helper/aur.bash" >> ~/.bashrc`
-   - `$ echo "alias aur='~/work/aur/aur-helper/aur.bash' >> ~/.bashrc`  
+ 2. aur.bash can be sourced, ~~aliased, or ran directly, any of the following will work~~
+    - `$ echo "source ~/work/aur/aur-helper/aur.bash" >> ~/.bashrc`
+    - ~~`$ echo "alias aur='~/work/aur/aur-helper/aur.bash' >> ~/.bashrc`~~
+    - ~~`$ bash ~/work/aur/aur-helper/aur.bash`~~
  3. run `aur sync` to download a list of all the aur packages
  4. run `aur search $SEARCH_TERM` to find a package 
  5. run `aur clone $PKG_NAME` to clone a repo, and spawn a subshell
