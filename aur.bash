@@ -51,8 +51,7 @@ function aur() {
             "
       ;;
     search)
-      pacman -Ss $2
-      search_aur $2
+      (pacman --color=always -Ss $2; search_aur $2) | less -FR
       ;;
     sync)
       wget --timestamping \
@@ -61,7 +60,7 @@ function aur() {
            --directory-prefix=$AURPATH \
            --content-disposition \
            --trust-server-names \
-           https://aur.archlinux.org/{packages,pkgbase,users,packages-meta-v1.json,packages-meta-ext-v1.json}.gz
+           https://aur.archlinux.org/packages-meta-ext-v1.json.gz
       ;;
     *)
       cmd_help
