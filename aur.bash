@@ -62,6 +62,9 @@ function aur() {
            --trust-server-names \
            https://aur.archlinux.org/packages-meta-ext-v1.json.gz
       ;;
+    pip)
+      pypi2pkgbuild.py --base-path $AURPATH --no-install --makepkg="-si" $2
+      ;;
     *)
       cmd_help
       ;;
